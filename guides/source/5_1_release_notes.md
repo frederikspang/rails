@@ -26,6 +26,21 @@ Upgrading to Rails 5.1
 
 ToDo
 
+### Top-level `HashWithIndifferentAccess` is soft-deprecated
+
+If your application uses the the top-level `HashWithIndifferentAccess` class, you
+should slowly move your code to use the `ActiveSupport::HashWithIndifferentAccess`
+one.
+
+It is only soft-deprecated, which means that your code will not break at the
+moment and no deprecation warning will be displayed but this constant will be
+removed in the future.
+
+Also, if you have pretty old YAML documents containg dumps of such objects,
+you may need to load and dump them again to make sure that they reference
+the right constant and that loading them won't break in the future.
+
+
 Major Features
 --------------
 
